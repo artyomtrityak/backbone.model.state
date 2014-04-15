@@ -1,18 +1,14 @@
 var gulp = require('gulp'),
     jshint = require('gulp-jshint'),
-    karma = require('karma').server,
-    karmaRunner = require('karma').runner;
-
+    karma = require('karma').server;
 
 gulp.task('default', ['jshint', 'test-once']);
-
 
 gulp.task('jshint', function() {
   gulp.src(['./**/*.js', '!node_modules/**/*.js', '!tests/vendor/*.js'])
   .pipe(jshint())
   .pipe(jshint.reporter());
 });
-
 
 gulp.task('test-once', function() {
   karma.start({

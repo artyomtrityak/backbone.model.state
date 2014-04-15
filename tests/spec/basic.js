@@ -1,7 +1,10 @@
 describe('Model.State', function(){
+
+  beforeEach(function() {
+    _.extend(Backbone.Model.prototype, BackboneModelState);
+  });
   
   it('should extend Backbone', function(){
-    expect(Backbone).to.be.a('object');
     expect(Backbone.Model.prototype.store).to.be.a('function');
     expect(Backbone.Model.prototype.restore).to.be.a('function');
   });

@@ -9,6 +9,8 @@ Backbone.Model.State
 Extension allows to store Backbone Models state endpoints and restore them.
 
 ```js
+_.extend(Backbone.Model.prototype, BackboneModelState);
+
 var model = new Backbone.Model();
 
 model.set('username', 'Artyom');
@@ -48,13 +50,19 @@ requirejs.config({
     app: ['ModelState']
   }
 });
+
+...
+_.extend(Backbone.Model.prototype, BackboneModelState);
+
 ```
 
 ### CommonJS
 
 ```js
-var Backbone = require('backbone');
-require('ModelState');
+var Backbone = require('backbone'),
+    BackboneModelState = require('ModelState');
+
+_.extend(Backbone.Model.prototype, BackboneModelState);
 
 ```
 
