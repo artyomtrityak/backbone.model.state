@@ -2,7 +2,7 @@
   "name": "Backbone.Model.State",
   "main": "backbone.model.state",
   "description": "Storing and restoring state for Backbone.js models",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "Artyom Trityak <art.trityak@gmail.com>",
   "url": "https://github.com/artyomtrityak/backbone.model.state",
   "license": "MIT",

@@ -1,7 +1,7 @@
 {
   "name": "backbone.model.state",
   "main": "backbone.model.state.js",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "homepage": "https://github.com/artyomtrityak/backbone.model.state",
   "authors": [
     "Artyom Trityak <art.trityak@gmail.com>"
