@@ -23,7 +23,6 @@
   } else {
     factory(root, {}, root._, root.Backbone);
   }
-
 }(this, function(root, exports, _, Backbone) {
   function Store(name) {
     if (!this.__ext) {
