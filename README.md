@@ -6,6 +6,20 @@ Backbone.Model.State
   <img src="http://jpillora.com/github-twitter-button/img/tweet.png"></img>
 </a>
 
+Extension allows to store Backbone Models state endpoints and restore them.
+
+```js
+var model = new Backbone.Model();
+
+model.set('username', 'Artyom');
+
+model.store('before edit');
+
+// make edit, removal etc
+
+model.restore('before edit');
+
+```
 
 
 ## Dependencies loading
