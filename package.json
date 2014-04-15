@@ -24,7 +24,7 @@
     "backbone": ">=1.0.0"
   },
   "devDependencies": {
-    "karma": "^0.12.9",
+    "karma": "0.12.9",
     "karma-script-launcher": "0.1.0",
     "karma-phantomjs-launcher": "0.1.4",
     "mocha": "1.18.2",
