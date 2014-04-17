@@ -37,12 +37,24 @@
     if (!this.__ext ||
       !this.__ext.ModelState ||
       !this.__ext.ModelState[name]) {
-      throw "There is no state with name " + name;
+      return this;
     }
     this.clear();
     this.set(this.__ext.ModelState[name]);
     return this;
   }
 
-  return {store: Store, restore: Restore};
+  function ClearState(name) {
+    if (!this.__ext || !this.__ext.ModelState) {
+      return this;
+    }
+    if (name) {
+      delete this.__ext.ModelState[name];
+    } else {
+      delete this.__ext.ModelState;
+    }
+    return this;
+  }
+
+  return {store: Store, restore: Restore, clearState: ClearState};
 }));

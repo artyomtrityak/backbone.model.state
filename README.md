@@ -23,6 +23,27 @@ model.restore('before edit');
 
 ```
 
+You also can clear state if it is not needed anymore
+
+```js
+var model = new Backbone.Model({'username': 'admin'});
+
+model.store('before edit');
+
+model.set('username', 'Artyom');
+
+model.save(null, {
+  success: function() {
+    model.clearState('before edit');
+    // or model.clearState(); to remove all model states
+
+    // Nothing happens
+    model.restore('before edit');
+  }
+});
+
+```
+
 
 ## Dependencies loading
 
@@ -73,6 +94,10 @@ _.extend(Backbone.Model.prototype, BackboneModelState);
 <script src="assets/js/underscore.js" />
 <script src="assets/js/backbone.js" />
 <script src="assets/js/backbone.model.state.js" />
+
+<script type="text/javascript">
+_.extend(Backbone.Model.prototype, BackboneModelState);
+</script>
 ```
 
 ### Bower

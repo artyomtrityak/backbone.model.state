@@ -66,10 +66,36 @@ describe('Model.State', function(){
     expect(model.get('myParam1')).to.be.equal('val123');
   });
 
-  it('should throw exception if something is not correct', function() {
+  it('should not throw exception if something is not correct', function() {
     var model = new Backbone.Model();
-    expect((function () {
-      model.restore('test');
-    })).to.throw('There is no state with name test');
+    model.restore('test');
+  });
+
+  it('should have clearState', function() {
+    var model = new Backbone.Model();
+    model.set('name', 'Artyom');
+    model.store('my name');
+    model.unset('name');
+
+    expect(model.get('name')).to.be.equal(undefined);
+    model.clearState('my name');
+    model.restore('my name');
+    expect(model.get('name')).to.be.equal(undefined);
+
+    model.set('name', 'Artyom');
+    model.store('my name1');
+
+    model.set('name', 'Artyom2');
+    model.store('my name2');
+
+    model.unset('name');
+
+    model.clearState();
+
+    model.restore('my name1');
+    expect(model.get('name')).to.be.equal(undefined);
+
+    model.restore('my name2');
+    expect(model.get('name')).to.be.equal(undefined);
   });
 });
