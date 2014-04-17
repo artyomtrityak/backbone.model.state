@@ -34,8 +34,8 @@ model.set('username', 'Artyom');
 
 model.save(null, {
   success: function() {
-    model.clearState('before edit');
     // or model.clearState(); to remove all model states
+    model.clearState('before edit');
 
     // Nothing happens
     model.restore('before edit');
