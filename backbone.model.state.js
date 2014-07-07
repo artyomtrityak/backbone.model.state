@@ -39,7 +39,7 @@
       !this.__ext.ModelState[name]) {
       return this;
     }
-    this.clear();
+    this.clear({silent: true});
     this.set(this.__ext.ModelState[name]);
     return this;
   }
