@@ -53,17 +53,24 @@ describe('Model.State', function(){
     model.store('test');
     model.set('myParam1', 'v');
     model.set('myParam2', 'z');
+    model.store('test2');
     sinon.spy(model, 'trigger');
 
     expect(model.trigger.calledWith('change')).to.be.equal(false);
 
     model.restore('test');
 
+    expect(model.trigger.callCount).to.be.equal(5);
     expect(model.trigger.calledWith('change')).to.be.equal(true);
     expect(model.trigger.calledWith('change:myParam1')).to.be.equal(true);
     expect(model.trigger.calledWith('change:myParam2')).to.be.equal(true);
     expect(model.get('myParam2')).to.be.equal(undefined);
     expect(model.get('myParam1')).to.be.equal('val123');
+
+    sinon.restore(model, 'trigger');
+    sinon.spy(model, 'trigger');
+    model.restore('test2', {silent: true});
+    expect(model.trigger.callCount).to.be.equal(0);
   });
 
   it('should not throw exception if something is not correct', function() {
