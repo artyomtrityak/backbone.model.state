@@ -33,14 +33,21 @@
     return this;
   }
 
-  function Restore(name) {
+  function Restore(name, params) {
+    params = params || {};
+
+    var opt = {
+      silent: params.silent ? params.silent : false
+    };
+
     if (!this.__ext ||
       !this.__ext.ModelState ||
       !this.__ext.ModelState[name]) {
       return this;
     }
-    this.clear();
-    this.set(this.__ext.ModelState[name]);
+
+    this.clear(opt);
+    this.set(this.__ext.ModelState[name], opt);
     return this;
   }
 
